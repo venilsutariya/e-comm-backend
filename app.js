@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt')
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
-const { allowCors } = require("./config/allowCors");
 app.use(express.json());
 let http = require('http');
 let fs = require('fs');
@@ -14,6 +13,8 @@ const fileUpload = require('express-fileupload')
 const cors = require('cors')
 const corsOptions = {
   origin: 'https://e-comm-web-mu.vercel.app',
+  methods: ["POST", "GET", "PATCH", "DELETE"],
+  credentials: true,
 };
 const { PORT } = process.env;
 const port = process.env.PORT || PORT;
@@ -22,7 +23,7 @@ const routes = require('./route/index.js')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(cors(corsOptions));
-app.use('/api', allowCors ,routes)
+app.use('/api' ,routes)
 const swaggerJson = require('./swagger/swagger.json')
 const swaggerUi = require("swagger-ui-express");
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJson));
