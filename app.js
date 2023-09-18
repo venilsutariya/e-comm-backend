@@ -7,7 +7,7 @@ const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
 app.use(express.json());
-let http = require('http');g
+let http = require('http');
 let fs = require('fs');
 const fileUpload = require('express-fileupload')
 const cors = require('cors')
