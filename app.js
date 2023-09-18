@@ -14,7 +14,7 @@ const cors = require('cors')
 const { PORT } = process.env;
 const port = process.env.PORT || PORT;
 const corsOptions = {
-  origin: 'https://e-comm-web-two.vercel.app',
+  origin: '*',
   methods:["POST","GET","PATCH","DELETE"],
   credentials: true,
 };
