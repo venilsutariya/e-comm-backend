@@ -6,10 +6,6 @@ const bcrypt = require('bcrypt')
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
-  app.use((req, res, next) => {
-     res.setHeader('Access-Control-Allow-Origin', '*');
-     next();
-   });
 app.use(express.json());
 let http = require('http');
 let fs = require('fs');
