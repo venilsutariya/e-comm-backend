@@ -67,7 +67,7 @@ exports.user = {
   },
   login: async (req, res) => {
     try {
-       res.header('Access-Control-Allow-Origin', 'https://e-comm-web-two.vercel.app');
+       res.setHeader('Access-Control-Allow-Origin', 'https://e-comm-web-two.vercel.app');
       let userInfo = await USER.findOne({
         email: req.body.email,
       });
@@ -110,7 +110,7 @@ exports.user = {
   },
   register: async function (req, res) {
     try {
-      res.header('Access-Control-Allow-Origin', 'https://e-comm-web-two.vercel.app');
+      res.setHeader('Access-Control-Allow-Origin', 'https://e-comm-web-two.vercel.app');
       let { userName, email, mobile, gender,city , state, country, postalCode, address, officeContact, birthDate,qualification, password, confirmPassword } = req.body;
       const file = req.file;
       if(!file){
