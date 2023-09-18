@@ -13,7 +13,7 @@ let fs = require('fs');
 const fileUpload = require('express-fileupload')
 const cors = require('cors')
 const corsOptions = {
-  origin: '*',
+  origin: 'https://e-comm-web-mu.vercel.app',
 };
 const { PORT } = process.env;
 const port = process.env.PORT || PORT;
