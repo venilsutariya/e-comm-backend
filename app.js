@@ -15,6 +15,8 @@ const { PORT } = process.env;
 const port = process.env.PORT || PORT;
 const corsOptions = {
   origin: 'https://e-comm-web-two.vercel.app',
+  methods:["POST","GET","PATCH","DELETE"],
+  credentials: true,
 };
 app.use(cors(corsOptions));
 const routes = require('./route/index.js')
