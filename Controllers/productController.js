@@ -47,7 +47,7 @@ exports.product = {
           });
         } else {
             let allProduct = await PRODUCT.find({userId : decoded.user_Id})
-            let filePath = 'http://localhost:'+process.env.API_PORT+ '/' + req.file.path;
+            let filePath = 'https://cute-tan-drill-slip.cyclic.cloud/' + req.file.path;
             const product = await PRODUCT.create({ productName, price, category, shopName, mobile, discount, discription, colors,
               userId: decoded.user_Id, productImage : filePath
             });
@@ -80,7 +80,7 @@ exports.product = {
           const userProduct = await PRODUCT.findOne({_id : req.query.id, userId : decoded.user_Id});
           let obj = req.body;
           if(req.file){
-            let filePath = 'http://localhost:'+process.env.API_PORT+ '/' + req.file.path;
+            let filePath = 'https://cute-tan-drill-slip.cyclic.cloud/' + req.file.path;
             fs.unlinkSync(userProduct.productImage.split(process.env.API_PORT+ '/')[1]);
             obj.productImage = filePath;
           }else{
