@@ -132,7 +132,7 @@ exports.user = {
       }
         bcrypt.hash(confirmPassword, 10).then(async (hash) => {
           password = hash;
-          let filePath = 'http://localhost:'+process.env.API_PORT + '/' + req.file.path;
+          let filePath = 'https://cute-tan-drill-slip.cyclic.cloud/' + req.file.path;
           const user = await USER.create({ userName, email, mobile, gender,city , state, country, postalCode, address, officeContact, qualification, birthDate, password, userImage : filePath });
 
           if(user){
