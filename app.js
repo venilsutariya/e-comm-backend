@@ -17,6 +17,7 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'https://e-comm-web-two.vercel.app');
   next();
 });
+console.log("Hello");
 
 const corsOptions = {
   origin: 'https://e-comm-web-two.vercel.app',
