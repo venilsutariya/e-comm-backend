@@ -14,12 +14,12 @@ const cors = require('cors')
 const { PORT } = process.env;
 const port = process.env.PORT || PORT;
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://e-comm-web-two.vercel.app');
+  res.header('Access-Control-Allow-Origin', 'https://e-comm-web-mu.vercel.app/');
   next();
 });
 
 const corsOptions = {
-  origin: 'https://e-comm-web-two.vercel.app',
+  origin: 'https://e-comm-web-mu.vercel.app/',
   methods:["POST","GET","PATCH","DELETE"],
   credentials: true,
 };
