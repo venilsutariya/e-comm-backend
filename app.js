@@ -23,15 +23,7 @@ const routes = require('./route/index.js')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(cors(corsOptions));
-app.use((req, res, next) => {
-    res.set({
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "*",
-        "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
-    });
 
-    next();
-});
 app.use('/api' ,routes)
 const swaggerJson = require('./swagger/swagger.json')
 const swaggerUi = require("swagger-ui-express");
