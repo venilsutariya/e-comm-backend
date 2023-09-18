@@ -6,6 +6,12 @@ const bcrypt = require('bcrypt')
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
+const corsOptions = {
+  origin: '*',
+  methods:["POST","GET","PATCH","DELETE"],
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 let http = require('http');
 let fs = require('fs');
@@ -13,17 +19,6 @@ const fileUpload = require('express-fileupload')
 const cors = require('cors')
 const { PORT } = process.env;
 const port = process.env.PORT || PORT;
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://e-comm-web-mu.vercel.app/');
-  next();
-});
-
-const corsOptions = {
-  origin: '*',
-  methods:["POST","GET","PATCH","DELETE"],
-  credentials: true,
-};
-app.use(cors(corsOptions));
 const routes = require('./route/index.js')
 
 const bodyParser = require('body-parser')
