@@ -14,14 +14,17 @@ const cors = require('cors')
 const corsOptions = {
   origin: '*',
 };
-app.use(cors());
 const { PORT } = process.env;
 const port = process.env.PORT || PORT;
 const routes = require('./route/index.js')
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
-
+app.use(cors(corsOptions));
+app.use("/api", (req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Allow requests from any origin
+  next();
+});
 app.use('/api', routes)
 const swaggerJson = require('./swagger/swagger.json')
 const swaggerUi = require("swagger-ui-express");
