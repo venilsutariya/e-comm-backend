@@ -6,17 +6,17 @@ const bcrypt = require('bcrypt')
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
+app.use(express.json());
+let http = require('http');
+let fs = require('fs');
+const fileUpload = require('express-fileupload')
+const cors = require('cors')
 const corsOptions = {
   origin: '*',
   methods:["POST","GET","PATCH","DELETE"],
   credentials: true,
 };
 app.use(cors(corsOptions));
-app.use(express.json());
-let http = require('http');
-let fs = require('fs');
-const fileUpload = require('express-fileupload')
-const cors = require('cors')
 const { PORT } = process.env;
 const port = process.env.PORT || PORT;
 const routes = require('./route/index.js')
