@@ -67,7 +67,6 @@ exports.user = {
   },
   login: async (req, res) => {
     try {
-       res.setHeader('Access-Control-Allow-Origin', '*');
       let userInfo = await USER.findOne({
         email: req.body.email,
       });
@@ -110,7 +109,6 @@ exports.user = {
   },
   register: async function (req, res) {
     try {
-      res.setHeader('Access-Control-Allow-Origin', '*');
       let { userName, email, mobile, gender,city , state, country, postalCode, address, officeContact, birthDate,qualification, password, confirmPassword } = req.body;
       const file = req.file;
       if(!file){
