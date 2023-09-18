@@ -13,6 +13,10 @@ const fileUpload = require('express-fileupload')
 const cors = require('cors')
 const { PORT } = process.env;
 const port = process.env.PORT || PORT;
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://e-comm-web-two.vercel.app');
+  next();
+});
 const corsOptions = {
   origin: '*',
   methods:["POST","GET","PATCH","DELETE"],
