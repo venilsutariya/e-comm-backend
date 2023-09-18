@@ -14,7 +14,7 @@ const cors = require('cors')
 const corsOptions = {
   origin: '*',
 };
-app.use(cors(corsOptions));
+app.use(cors());
 const { PORT } = process.env;
 const port = process.env.PORT || PORT;
 const routes = require('./route/index.js')
