@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 });
 
 const corsOptions = {
-  origin: 'https://e-comm-web-mu.vercel.app/',
+  origin: '*',
   methods:["POST","GET","PATCH","DELETE"],
   credentials: true,
 };
