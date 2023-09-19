@@ -11,18 +11,15 @@ let http = require('http');
 let fs = require('fs');
 const fileUpload = require('express-fileupload')
 const cors = require('cors')
-const corsOptions = {
-  origin: 'https://e-comm-web-mu.vercel.app',
-  methods: ["POST", "GET", "PATCH", "DELETE"],
-  credentials: true,
-};
+app.use(cors({
+  origin: "https://e-comm-web-mu.vercel.app/"
+}));
 const { PORT } = process.env;
 const port = process.env.PORT || PORT;
 const routes = require('./route/index.js')
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
-app.use(cors(corsOptions));
 
 app.use('/api' ,routes)
 const swaggerJson = require('./swagger/swagger.json')
