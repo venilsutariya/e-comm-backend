@@ -1,0 +1,6 @@
+runtime: nodejs
+environment:
+  NODE_ENV: production
+fileSystemMounts:
+  - source: /
+    destination: /
